@@ -1,12 +1,31 @@
 {
   "name": "array-funcs",
-  "version": "0.0.0",
-  "description": "array-funcs module",
+  "version": "0.1.0",
+  "description": "A very limited subset of array functions I use every day",
   "repository": "jeromedecoster/array-funcs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "flatten.js"
+  ],
+  "keywords": [
+    "array",
+    "flatten",
+    "arguments",
+    "nodelist"
+  ],
+  "author": {
+    "name": "Jérôme Decoster",
+    "url": "http://jeromedecoster.com"
   },
-  "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "budo src/index.js:bundle.js --dir src --host localhost --port 3000 --no-debug --live",
+    "dev": "chokidar '*.js' 'test/*.js' -c 'npm run test'",
+    "test": "tape test/*.js | tap-spec || true"
+  },
+  "devDependencies": {
+    "budo": "^8.3.0",
+    "chokidar-cli": "^1.2.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  }
 }
